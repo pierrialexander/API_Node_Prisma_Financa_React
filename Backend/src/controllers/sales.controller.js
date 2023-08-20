@@ -36,7 +36,7 @@ exports.getId = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         const data = await updateValidation.parse(req.body);
-        const sale = await updateSale(req.params.id, data);
+        const sale = await updateSale(Number(req.params.id), data);
         res.status(200).send(sale);
     } catch (error) {
         res.status(400).send(error);
@@ -46,7 +46,7 @@ exports.update = async (req, res) => {
 // CHAMA O MÉTODO QUE REMOVE UMA VENDA
 exports.remove = async (req, res) => {
     try {
-        const sale = await removeSale(req.params.id);
+        const sale = await removeSale(Number(req.params.id));
         res.status(200).send(sale);
     } catch (error) {
         res.status(400).send(error);
