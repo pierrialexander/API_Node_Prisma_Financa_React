@@ -1,7 +1,11 @@
-import { Main, Body, Logo, Spacing } from './styles'
+import { Main, Body, Logo, Spacing, CreateAcc } from './styles'
 import { Input, Button } from '../../components'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+    const navigate = useNavigate()
+
     return (
         <Main>
             <Body>
@@ -11,6 +15,8 @@ const Login = () => {
                 <Input label="Senha" type="password" placeholder="Digite a senha" />
                 <Spacing />
                 <Button label="Entrar" variant="btn-primary" />
+                <Spacing />
+                <CreateAcc onClick={() => navigate('/register')}>Criar Conta</CreateAcc>
             </Body>
         </Main>
     )
